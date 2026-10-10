@@ -17,3 +17,8 @@ Acesse http://localhost:8080 e conclua a instalação de cinco minutos do WordPr
     curl.exe -I http://localhost:8080/
 
 As evidências visuais serão colocadas em [screenshots](screenshots/). Para encerrar, execute docker-compose down. Esse comando preserva os volumes.
+
+## Evidências
+
+- [Contêineres em execução](screenshots/01-containers.png)
+- [Tela de instalação do WordPress](screenshots/02-instalacao-wordpress.png)

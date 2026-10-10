@@ -22,3 +22,9 @@ Execute o comando abaixo várias vezes. O cabeçalho X-Upstream deve mostrar tr�
 Os WordPress e o MySQL não têm portas publicadas no host. Confirme com docker-compose ps. As evidências visuais serão colocadas em [screenshots](screenshots/).
 
 Para encerrar sem apagar os dados, execute docker-compose down.
+
+## Evidências
+
+- [Cinco contêineres em execução, logo após a partida](screenshots/01-containers.png)
+- [Balanceamento entre três IPs](screenshots/02-balanceamento.png)
+- [Tela de instalação do WordPress pelo Nginx](screenshots/03-instalacao-wordpress.png)
