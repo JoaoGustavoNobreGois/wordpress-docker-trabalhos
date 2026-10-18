@@ -62,7 +62,7 @@ def start_stack(compose: list[str], instances: int) -> dict[str, str]:
 
 
 def cli(compose: list[str], env: dict[str, str], args: list[str], check: bool = True) -> int:
-    return call(compose + ["run", "--rm", "--no-deps", "wpcli"] + args, env, check)
+    return call(compose + ["run", "--rm", "--no-deps", "wpcli", "wp"] + args, env, check)
 
 
 def setup_blog(compose: list[str], env: dict[str, str]) -> dict:
