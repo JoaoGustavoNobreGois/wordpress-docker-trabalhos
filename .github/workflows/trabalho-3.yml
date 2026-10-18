@@ -1,0 +1,45 @@
+name: Trabalho 3 - matriz Locust
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "trabalho 3/**"
+      - "!trabalho 3/results/**"
+      - ".github/workflows/trabalho-3.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  carga:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Conferir Docker Compose
+        run: docker compose version
+      - name: Executar as 27 combinações
+        run: python "trabalho 3/run_matrix.py"
+      - name: Publicar métricas e gráficos
+        run: |
+          git add "trabalho 3/results"
+          if ! git diff --cached --quiet; then
+            git -c user.name="João Gustavo Nobre Gois" \
+                -c user.email="150351885+JoaoGustavoNobreGois@users.noreply.github.com" \
+                commit -m "docs(trabalho-3): publica resultados reais dos testes Locust"
+            git push
+          fi
+      - name: Preservar dados para diagnóstico
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trabalho-3-locust
+          path: trabalho 3/results/
+          if-no-files-found: ignore
