@@ -1,0 +1,37 @@
+name: Trabalho 4 - Link Extractor com Locust
+
+on:
+  workflow_dispatch:
+    inputs:
+      users:
+        description: "Quantidades de usuários (separadas por vírgula)"
+        default: "10,50,100,200"
+      duration:
+        description: "Duração de cada teste"
+        default: "60s"
+
+permissions:
+  contents: read
+
+jobs:
+  carga:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar matplotlib para os gráficos
+        run: pip install matplotlib
+      - name: Executar a matriz (2 versões × 2 modos de cache × usuários)
+        run: >
+          python "trabalho 4/run_matrix.py"
+          --users "${{ inputs.users }}" --duration "${{ inputs.duration }}"
+      - name: Guardar métricas e gráficos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trabalho-4-locust
+          path: trabalho 4/results/
+          if-no-files-found: ignore

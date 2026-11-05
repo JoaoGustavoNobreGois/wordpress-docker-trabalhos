@@ -1,0 +1,7 @@
+.env
+**/html/
+trabalho 3/generated/
+**/__pycache__/
+**/screenshots/*.tmp
+.DS_Store
+trabalho 4/generated/

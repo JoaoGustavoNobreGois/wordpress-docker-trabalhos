@@ -1,0 +1,67 @@
+name: trabalho4-linkextractor
+
+# CACHE=on|off liga ou desliga o Redis nas duas versões do serviço.
+#   CACHE=off docker compose up -d --build
+
+services:
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      retries: 30
+
+  sites:
+    image: nginx:1.27-alpine
+    volumes:
+      - ./generated/sites:/usr/share/nginx/html:ro
+
+  api-python:
+    build: ./api-python
+    image: linkextractor-api:python
+    ports:
+      - "127.0.0.1:5000:5000"
+    environment:
+      REDIS_URL: redis://redis:6379
+      CACHE: ${CACHE:-on}
+    depends_on:
+      redis:
+        condition: service_healthy
+      sites:
+        condition: service_started
+
+  api-ruby:
+    build: ./api-ruby
+    image: linkextractor-api:ruby
+    ports:
+      - "127.0.0.1:4567:4567"
+    environment:
+      REDIS_URL: redis://redis:6379
+      CACHE: ${CACHE:-on}
+    depends_on:
+      redis:
+        condition: service_healthy
+      sites:
+        condition: service_started
+
+  web:
+    build: ./www
+    image: linkextractor-web:php
+    ports:
+      - "127.0.0.1:8080:80"
+    environment:
+      API_ENDPOINT: ${API_ENDPOINT:-http://api-python:5000/api/}
+    depends_on:
+      - api-python
+
+  locust:
+    image: locustio/locust:2.32.4
+    profiles: ["load"]
+    ports:
+      - "127.0.0.1:8089:8089"
+    environment:
+      SITES_BASE: http://sites
+    volumes:
+      - ./locustfile.py:/mnt/locust/locustfile.py:ro
+      - ./results:/mnt/results
+    command: -f /mnt/locust/locustfile.py --host http://api-python:5000

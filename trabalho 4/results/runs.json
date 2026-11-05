@@ -1,0 +1,164 @@
+{
+  "runs": [
+    {
+      "run_id": "python_cache-on_u10",
+      "versao": "python",
+      "cache": "on",
+      "usuarios": 10,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:14:16.777628+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "python_cache-on_u50",
+      "versao": "python",
+      "cache": "on",
+      "usuarios": 50,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:15:17.365151+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "python_cache-on_u100",
+      "versao": "python",
+      "cache": "on",
+      "usuarios": 100,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:16:18.049088+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "python_cache-on_u200",
+      "versao": "python",
+      "cache": "on",
+      "usuarios": 200,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:17:19.187774+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "ruby_cache-on_u10",
+      "versao": "ruby",
+      "cache": "on",
+      "usuarios": 10,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:18:21.468638+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "ruby_cache-on_u50",
+      "versao": "ruby",
+      "cache": "on",
+      "usuarios": 50,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:19:21.957632+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "ruby_cache-on_u100",
+      "versao": "ruby",
+      "cache": "on",
+      "usuarios": 100,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:20:22.673125+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "ruby_cache-on_u200",
+      "versao": "ruby",
+      "cache": "on",
+      "usuarios": 200,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:21:23.610270+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "python_cache-off_u10",
+      "versao": "python",
+      "cache": "off",
+      "usuarios": 10,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:22:29.019619+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "python_cache-off_u50",
+      "versao": "python",
+      "cache": "off",
+      "usuarios": 50,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:23:29.630774+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "python_cache-off_u100",
+      "versao": "python",
+      "cache": "off",
+      "usuarios": 100,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:24:34.119304+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "python_cache-off_u200",
+      "versao": "python",
+      "cache": "off",
+      "usuarios": 200,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:25:44.024949+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "ruby_cache-off_u10",
+      "versao": "ruby",
+      "cache": "off",
+      "usuarios": 10,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:26:54.797431+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "ruby_cache-off_u50",
+      "versao": "ruby",
+      "cache": "off",
+      "usuarios": 50,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:27:55.551121+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "ruby_cache-off_u100",
+      "versao": "ruby",
+      "cache": "off",
+      "usuarios": 100,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:28:58.759757+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    },
+    {
+      "run_id": "ruby_cache-off_u200",
+      "versao": "ruby",
+      "cache": "off",
+      "usuarios": 200,
+      "duracao": "60s",
+      "inicio": "2026-11-03T18:30:05.208775+00:00",
+      "locust_exit_code": 0,
+      "modo": "local"
+    }
+  ]
+}
