@@ -1,0 +1,252 @@
+{
+  "fixtures": {
+    "imagem-300kb.png": 307678,
+    "texto-400kb.txt": 409600,
+    "imagem-1mb.png": 1045273
+  },
+  "runs": [
+    {
+      "run_id": "imagem-1mb_i1_u10",
+      "scenario": "imagem-1mb",
+      "instances": 1,
+      "users": 10,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:02:40.377948+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-1mb_i1_u50",
+      "scenario": "imagem-1mb",
+      "instances": 1,
+      "users": 50,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:03:17.224407+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-1mb_i1_u100",
+      "scenario": "imagem-1mb",
+      "instances": 1,
+      "users": 100,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:03:47.934753+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "texto-400kb_i1_u10",
+      "scenario": "texto-400kb",
+      "instances": 1,
+      "users": 10,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:04:18.492579+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "texto-400kb_i1_u50",
+      "scenario": "texto-400kb",
+      "instances": 1,
+      "users": 50,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:04:48.952794+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "texto-400kb_i1_u100",
+      "scenario": "texto-400kb",
+      "instances": 1,
+      "users": 100,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:05:19.421713+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-300kb_i1_u10",
+      "scenario": "imagem-300kb",
+      "instances": 1,
+      "users": 10,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:05:49.923591+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-300kb_i1_u50",
+      "scenario": "imagem-300kb",
+      "instances": 1,
+      "users": 50,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:06:20.360695+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-300kb_i1_u100",
+      "scenario": "imagem-300kb",
+      "instances": 1,
+      "users": 100,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:06:50.791443+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-1mb_i2_u10",
+      "scenario": "imagem-1mb",
+      "instances": 2,
+      "users": 10,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:07:38.199704+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-1mb_i2_u50",
+      "scenario": "imagem-1mb",
+      "instances": 2,
+      "users": 50,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:08:08.586086+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-1mb_i2_u100",
+      "scenario": "imagem-1mb",
+      "instances": 2,
+      "users": 100,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:08:39.001612+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "texto-400kb_i2_u10",
+      "scenario": "texto-400kb",
+      "instances": 2,
+      "users": 10,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:09:09.565848+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "texto-400kb_i2_u50",
+      "scenario": "texto-400kb",
+      "instances": 2,
+      "users": 50,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:09:39.995386+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "texto-400kb_i2_u100",
+      "scenario": "texto-400kb",
+      "instances": 2,
+      "users": 100,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:10:10.410118+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-300kb_i2_u10",
+      "scenario": "imagem-300kb",
+      "instances": 2,
+      "users": 10,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:10:41.001913+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-300kb_i2_u50",
+      "scenario": "imagem-300kb",
+      "instances": 2,
+      "users": 50,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:11:11.499894+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-300kb_i2_u100",
+      "scenario": "imagem-300kb",
+      "instances": 2,
+      "users": 100,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:11:41.953617+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-1mb_i3_u10",
+      "scenario": "imagem-1mb",
+      "instances": 3,
+      "users": 10,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:12:31.112957+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-1mb_i3_u50",
+      "scenario": "imagem-1mb",
+      "instances": 3,
+      "users": 50,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:13:01.567268+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-1mb_i3_u100",
+      "scenario": "imagem-1mb",
+      "instances": 3,
+      "users": 100,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:13:32.059214+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "texto-400kb_i3_u10",
+      "scenario": "texto-400kb",
+      "instances": 3,
+      "users": 10,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:14:02.771251+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "texto-400kb_i3_u50",
+      "scenario": "texto-400kb",
+      "instances": 3,
+      "users": 50,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:14:33.336043+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "texto-400kb_i3_u100",
+      "scenario": "texto-400kb",
+      "instances": 3,
+      "users": 100,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:15:03.917648+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-300kb_i3_u10",
+      "scenario": "imagem-300kb",
+      "instances": 3,
+      "users": 10,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:15:34.636563+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-300kb_i3_u50",
+      "scenario": "imagem-300kb",
+      "instances": 3,
+      "users": 50,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:16:05.206678+00:00",
+      "locust_exit_code": 0
+    },
+    {
+      "run_id": "imagem-300kb_i3_u100",
+      "scenario": "imagem-300kb",
+      "instances": 3,
+      "users": 100,
+      "duration": "30s",
+      "started_at": "2026-10-18T13:16:35.776725+00:00",
+      "locust_exit_code": 0
+    }
+  ]
+}

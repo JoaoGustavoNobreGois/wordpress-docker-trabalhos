@@ -1,0 +1,65 @@
+name: trabalho-2-wordpress
+
+services:
+  mysql:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: r00t
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: usr-wordpress
+      MYSQL_PASSWORD: pwd-wordpress
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  wordpress1: &wordpress
+    image: wordpress:5.4.2-php7.2-apache
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: usr-wordpress
+      WORDPRESS_DB_PASSWORD: pwd-wordpress
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./html:/var/www/html
+    networks:
+      - frontend
+      - backend
+
+  wordpress2:
+    <<: *wordpress
+
+  wordpress3:
+    <<: *wordpress
+
+  nginx:
+    image: nginx:1.19.0
+    restart: unless-stopped
+    depends_on:
+      - wordpress1
+      - wordpress2
+      - wordpress3
+    ports:
+      - "127.0.0.1:80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./html:/usr/share/nginx/html:ro
+    networks:
+      - frontend
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  mysql_data:

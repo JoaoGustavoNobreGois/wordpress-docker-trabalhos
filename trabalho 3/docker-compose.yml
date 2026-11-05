@@ -1,0 +1,95 @@
+name: trabalho-3-locust
+
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: r00t
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: usr-wordpress
+      MYSQL_PASSWORD: pwd-wordpress
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  wordpress1: &wordpress
+    image: wordpress:5.4.2-php7.2-apache
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment: &wordpress_env
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: usr-wordpress
+      WORDPRESS_DB_PASSWORD: pwd-wordpress
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./html:/var/www/html
+    networks:
+      - frontend
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost/ > /dev/null || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  wordpress2:
+    <<: *wordpress
+
+  wordpress3:
+    <<: *wordpress
+
+  nginx:
+    image: nginx:1.19.0
+    depends_on:
+      wordpress1:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8090:80"
+    volumes:
+      - ${NGINX_CONF:-./nginx/3.conf}:/etc/nginx/nginx.conf:ro
+      - ./html:/usr/share/nginx/html:ro
+    networks:
+      - frontend
+
+  wpcli:
+    image: wordpress:cli-php7.2
+    profiles: [tools]
+    user: "33:33"
+    environment:
+      <<: *wordpress_env
+      HOME: /tmp
+    volumes:
+      - ./html:/var/www/html
+      - ./generated:/mnt/generated:ro
+      - ./seed.php:/mnt/seed.php:ro
+    networks:
+      - backend
+
+  locust:
+    image: locustio/locust:2.46.5
+    profiles: [load]
+    environment:
+      SCENARIO: ${SCENARIO:-imagem-1mb}
+    volumes:
+      - ./locustfile.py:/mnt/locust/locustfile.py:ro
+      - ./html:/mnt/site:ro
+      - ./results:/mnt/results
+    ports:
+      - "127.0.0.1:8089:8089"
+    command: -f /mnt/locust/locustfile.py --host http://nginx
+    networks:
+      - frontend
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  mysql_data:
